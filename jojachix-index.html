@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JoJaChix · Japanese-Fusion Sushi · Sheepshead Bay, Brooklyn</title>
+<meta name="description" content="JoJaChix — premium Japanese-fusion sushi on Emmons Ave, Brooklyn. Torch-seared aburi, fresh nigiri & sashimi, rolls and a full kitchen. Rated 4.9. Order pickup or delivery." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Hanken+Grotesk:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17100d; --bg-2:#1f1612; --bg-3:#271b15; --bg-card:#211712;
+  --ink:#f4ece0; --muted:#bcab98; --faint:#8c7c6c;
+  --line:rgba(244,236,224,.12); --line-2:rgba(244,236,224,.07);
+  --ember:#e2683b; --ember-2:#f4925b; --gold:#cda349; --yuzu:#c9d18a;
+  --oxblood:#43201a;
+  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --maxw:1180px;
+  --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  font-family:var(--body); background:var(--bg); color:var(--ink);
+  line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  font-size:16.5px; font-weight:400;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(60vw 50vh at 85% -8%, rgba(226,104,59,.16), transparent 60%),
+    radial-gradient(50vw 40vh at 5% 12%, rgba(67,32,26,.55), transparent 60%),
+    radial-gradient(40vw 40vh at 100% 100%, rgba(205,163,73,.06), transparent 60%);
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--ember-2);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;position:relative;z-index:1}
+
+/* ---------- Type helpers ---------- */
+.eyebrow{
+  font-family:var(--body); font-size:.72rem; font-weight:700; letter-spacing:.28em;
+  text-transform:uppercase; color:var(--gold); display:inline-flex; align-items:center; gap:.6em;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.04;letter-spacing:-.01em}
+.serif-i{font-family:var(--display);font-style:italic;font-weight:400}
+
+/* ---------- Sear line signature ---------- */
+.sear{
+  height:2px; width:100%; border-radius:2px; position:relative; overflow:hidden;
+  background:linear-gradient(90deg,transparent,var(--oxblood) 12%,var(--ember) 50%,var(--oxblood) 88%,transparent);
+}
+.sear::after{
+  content:""; position:absolute; top:0; left:0; height:100%; width:38%;
+  background:linear-gradient(90deg,transparent,rgba(244,226,140,.95),var(--ember-2),transparent);
+  filter:blur(.5px);
+  animation:sear 4.5s ease-in-out infinite;
+}
+@keyframes sear{0%{transform:translateX(-60%)}50%{transform:translateX(220%)}100%{transform:translateX(220%)}}
+@media (prefers-reduced-motion:reduce){.sear::after{animation:none;opacity:.6}}
+
+/* ---------- Header ---------- */
+.hdr{
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  transition:background .3s ease, backdrop-filter .3s ease, border-color .3s ease, padding .3s ease;
+  padding:18px 0; border-bottom:1px solid transparent;
+}
+.hdr.scrolled{
+  background:rgba(20,14,11,.82); backdrop-filter:blur(14px) saturate(1.2);
+  border-bottom:1px solid var(--line-2); padding:11px 0;
+}
+.hdr-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand-mark{
+  width:38px;height:38px;border-radius:11px;flex-shrink:0;
+  background:radial-gradient(120% 120% at 30% 20%,var(--ember-2),var(--ember) 45%,#9c3d20 100%);
+  display:grid;place-items:center;box-shadow:0 6px 18px rgba(226,104,59,.35), inset 0 1px 0 rgba(255,220,180,.5);
+}
+.brand-mark svg{width:20px;height:20px}
+.brand-name{font-family:var(--display);font-weight:600;font-size:1.35rem;letter-spacing:.01em;line-height:1}
+.brand-name b{color:var(--ember-2);font-weight:600}
+.brand-sub{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);display:block;margin-top:2px}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:.9rem;color:var(--muted);font-weight:500;position:relative;padding:4px 0;transition:color .2s}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--ember);transition:right .25s ease;border-radius:2px}
+.nav a:hover{color:var(--ink)} .nav a:hover::after{right:0}
+.hdr-actions{display:flex;align-items:center;gap:12px}
+
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(0,0,0,.2)}
+.lang button{padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;color:var(--faint);transition:.2s}
+.lang button.on{background:var(--ink);color:var(--bg)}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;justify-content:center;
+  padding:12px 22px;border-radius:999px;font-weight:700;font-size:.92rem;letter-spacing:.01em;
+  transition:transform .15s ease, box-shadow .25s ease, background .2s;
+}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn-ember{background:linear-gradient(180deg,var(--ember-2),var(--ember));color:#1a0c06;box-shadow:0 10px 26px -10px rgba(226,104,59,.85), inset 0 1px 0 rgba(255,230,200,.6)}
+.btn-ember:hover{box-shadow:0 14px 34px -10px rgba(226,104,59,.95), inset 0 1px 0 rgba(255,230,200,.7)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ember);background:rgba(226,104,59,.07)}
+.btn svg{width:17px;height:17px}
+.hamburger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:11px;align-items:center;justify-content:center}
+.hamburger svg{width:22px;height:22px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:150px 0 70px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:54px;align-items:center}
+.hero-rating{display:inline-flex;align-items:center;gap:10px;margin-bottom:26px;
+  background:rgba(205,163,73,.08);border:1px solid rgba(205,163,73,.3);padding:7px 14px;border-radius:999px}
+.stars{display:inline-flex;gap:1px;color:var(--gold)}
+.stars svg{width:15px;height:15px}
+.hero-rating b{font-weight:800;font-size:.95rem}
+.hero-rating span{font-size:.82rem;color:var(--muted)}
+.hero h1{font-size:clamp(3.4rem,9vw,6.6rem);font-weight:400;margin:8px 0 6px;letter-spacing:-.02em}
+.hero h1 .a{color:var(--ink)} .hero h1 .b{color:var(--ember-2)}
+.hero-tag{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(1.35rem,3.4vw,2rem);color:var(--ink);opacity:.92;line-height:1.2;max-width:18ch}
+.hero-desc{color:var(--muted);font-size:1.05rem;margin:22px 0 8px;max-width:46ch}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin:24px 0 30px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:rgba(255,255,255,.012)}
+.chip svg{width:14px;height:14px;color:var(--gold)}
+.chip.live b{color:var(--ink);font-weight:700}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--yuzu);box-shadow:0 0 0 4px rgba(201,209,138,.18);flex-shrink:0}
+.dot.closed{background:#c9655a;box-shadow:0 0 0 4px rgba(201,101,90,.18)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero-cta .btn{padding:15px 28px;font-size:1rem}
+
+/* hero art card */
+.hero-art{position:relative}
+.dishcard{
+  position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(165deg,#2a1c15,#180f0b);
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.05);
+  aspect-ratio:4/4.4;
+}
+.dish-img{position:absolute;inset:0;background-size:cover;background-position:center;
+  background-image:radial-gradient(80% 60% at 50% 30%,rgba(226,104,59,.22),transparent 70%);}
+.dish-svg{position:absolute;inset:0;display:grid;place-items:center}
+.dish-glow{position:absolute;left:50%;top:38%;width:62%;height:38%;transform:translateX(-50%);
+  background:radial-gradient(50% 50% at 50% 50%,rgba(244,146,91,.5),rgba(226,104,59,.14),transparent 72%);filter:blur(8px);
+  animation:flicker 3.6s ease-in-out infinite}
+@keyframes flicker{0%,100%{opacity:.75;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.05)}}
+@media(prefers-reduced-motion:reduce){.dish-glow{animation:none}}
+.dish-cap{position:absolute;left:0;right:0;bottom:0;padding:22px;
+  background:linear-gradient(0deg,rgba(15,9,6,.95),rgba(15,9,6,.4) 60%,transparent);}
+.dish-cap .k{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ember-2);font-weight:700}
+.dish-cap h3{font-size:1.5rem;margin:5px 0 3px}
+.dish-cap p{font-size:.85rem;color:var(--muted)}
+.dish-badge{position:absolute;top:16px;right:16px;background:rgba(15,9,6,.7);border:1px solid var(--line);
+  border-radius:999px;padding:7px 13px;font-size:.74rem;font-weight:700;display:flex;align-items:center;gap:7px;backdrop-filter:blur(6px)}
+.dish-badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--yuzu);box-shadow:0 0 0 0 rgba(201,209,138,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,209,138,.5)}70%{box-shadow:0 0 0 9px rgba(201,209,138,0)}100%{box-shadow:0 0 0 0 rgba(201,209,138,0)}}
+
+/* marquee strip */
+.strip{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);overflow:hidden;background:rgba(0,0,0,.18);margin-top:14px}
+.strip-track{display:flex;gap:0;white-space:nowrap;animation:scrollx 38s linear infinite;width:max-content}
+.strip:hover .strip-track{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.strip-track{animation:none}}
+.strip-track span{display:inline-flex;align-items:center;gap:16px;padding:13px 0;font-family:var(--display);font-style:italic;font-size:1.15rem;color:var(--muted)}
+.strip-track span::after{content:"✦";color:var(--ember);font-style:normal;margin:0 26px;font-size:.7rem}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- Section frame ---------- */
+.section{padding:84px 0;position:relative}
+.section-head{margin-bottom:40px}
+.section-head .sear{max-width:90px;margin-bottom:18px}
+.section-head h2{font-size:clamp(2.1rem,5vw,3.3rem);font-weight:400;letter-spacing:-.02em}
+.section-head h2 em{font-family:var(--display);font-style:italic;color:var(--ember-2)}
+.section-head p{color:var(--muted);max-width:54ch;margin-top:12px;font-size:1.03rem}
+
+/* ---------- Order section ---------- */
+#order{background:linear-gradient(180deg,transparent,rgba(67,32,26,.25),transparent)}
+.order-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.plat{
+  display:flex;align-items:center;gap:15px;padding:18px 18px;border-radius:var(--r);
+  background:var(--bg-card);border:1px solid var(--line);transition:transform .18s ease,border-color .2s,background .2s;
+  position:relative;overflow:hidden;
+}
+.plat:hover{transform:translateY(-3px);border-color:rgba(226,104,59,.5);background:#26190f}
+.plat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pc,var(--ember))}
+.plat-ico{width:46px;height:46px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;
+  font-weight:800;font-size:1.2rem;color:#fff;background:var(--pc,var(--ember));letter-spacing:-.02em}
+.plat-body{min-width:0;flex:1}
+.plat-name{font-weight:700;font-size:1.02rem;display:flex;align-items:center;gap:8px}
+.plat-note{font-size:.8rem;color:var(--faint);margin-top:1px}
+.plat-arrow{color:var(--faint);transition:transform .2s,color .2s;flex-shrink:0}
+.plat:hover .plat-arrow{color:var(--ember-2);transform:translateX(3px)}
+.plat-arrow svg{width:18px;height:18px}
+.tag-best{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--bg);
+  background:var(--yuzu);padding:2px 7px;border-radius:6px}
+.order-foot{margin-top:18px;font-size:.9rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center}
+.order-foot a{color:var(--ember-2);font-weight:700}
+
+/* ---------- Menu ---------- */
+.menubar{position:sticky;top:60px;z-index:40;padding:14px 0 12px;margin:0 -22px;
+  background:rgba(20,14,11,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-2)}
+.menubar .wrap{padding:0 22px}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}
+.tab{padding:8px 15px;border-radius:999px;font-size:.85rem;font-weight:600;color:var(--muted);border:1px solid var(--line);transition:.2s;white-space:nowrap}
+.tab:hover{color:var(--ink);border-color:var(--faint)}
+.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pills{display:flex;gap:7px;overflow-x:auto;padding-bottom:3px;scrollbar-width:thin;-ms-overflow-style:none}
+.pills::-webkit-scrollbar{height:5px}.pills::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px}
+.pill{padding:6px 13px;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--faint);white-space:nowrap;transition:.2s;border:1px solid transparent}
+.pill:hover{color:var(--ink)}
+.pill.on{color:var(--ember-2);border-color:rgba(226,104,59,.4);background:rgba(226,104,59,.08)}
+
+.cat{padding-top:46px;scroll-margin-top:170px}
+.cat-head{display:flex;align-items:baseline;gap:16px;margin-bottom:20px}
+.cat-head h3{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:400;white-space:nowrap}
+.cat-head .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);position:relative;top:-6px}
+.cat-head .cnt{font-family:var(--body);font-size:.78rem;color:var(--faint);font-weight:600;letter-spacing:.1em}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:6px 44px}
+.item{padding:15px 0;border-bottom:1px solid var(--line-2);transition:padding .2s}
+.item:hover{}
+.item-top{display:flex;align-items:baseline;gap:10px}
+.item-name{font-weight:600;font-size:1.04rem;color:var(--ink);flex-shrink:0}
+.item-lead{flex:1;border-bottom:1px dotted var(--line);position:relative;top:-4px;min-width:14px}
+.item-price{font-family:var(--display);font-weight:500;font-size:1.06rem;color:var(--gold);white-space:nowrap}
+.item-desc{font-size:.86rem;color:var(--faint);margin-top:3px;max-width:50ch}
+.item-feat{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ember-2);border:1px solid rgba(226,104,59,.35);border-radius:5px;padding:1px 6px;margin-left:8px;vertical-align:middle}
+
+/* ---------- Info / hours / map ---------- */
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;align-items:start}
+.panel{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.panel h3{font-size:1.5rem;margin-bottom:4px;font-weight:500}
+.panel .sub{font-size:.85rem;color:var(--faint);margin-bottom:18px}
+.hours-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line-2);font-size:.94rem}
+.hours-row:last-child{border-bottom:none}
+.hours-row.today{color:var(--ink);font-weight:700}
+.hours-row.today .hd{color:var(--ember-2)}
+.hours-row .hd{color:var(--muted)}
+.hours-row.today .hd::before{content:"●";font-size:.6rem;margin-right:8px;color:var(--yuzu);vertical-align:middle}
+.contact-line{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line-2)}
+.contact-line:last-child{border-bottom:none}
+.contact-line .ci{width:38px;height:38px;border-radius:10px;background:var(--bg-3);display:grid;place-items:center;flex-shrink:0;color:var(--gold)}
+.contact-line .ci svg{width:18px;height:18px}
+.contact-line .cl{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:700}
+.contact-line .cv{font-size:1rem;color:var(--ink);font-weight:500}
+.contact-line a.cv:hover{color:var(--ember-2)}
+.locard{position:relative;display:block;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
+  min-height:340px;background:linear-gradient(160deg,#241710,#150d09);transition:border-color .2s,transform .2s}
+.locard:hover{border-color:rgba(226,104,59,.5);transform:translateY(-2px)}
+.locard::before{content:"";position:absolute;inset:0;opacity:.55;
+  background-image:repeating-linear-gradient(0deg,transparent 0 37px,rgba(244,236,224,.05) 37px 38px),
+    repeating-linear-gradient(90deg,transparent 0 45px,rgba(244,236,224,.05) 45px 46px)}
+.locard::after{content:"";position:absolute;left:-10%;right:-10%;top:52%;height:40px;transform:rotate(-7deg);
+  background:linear-gradient(90deg,transparent,rgba(205,163,73,.16) 30%,rgba(205,163,73,.16) 70%,transparent)}
+.locard-pin{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);z-index:2}
+.locard-pin svg{width:46px;height:46px;position:relative;z-index:2;filter:drop-shadow(0 6px 12px rgba(0,0,0,.6))}
+.locard-glow{position:absolute;left:50%;top:50%;width:120px;height:120px;transform:translate(-50%,-50%);
+  background:radial-gradient(50% 50% at 50% 50%,rgba(244,146,91,.5),rgba(226,104,59,.12),transparent 70%);
+  filter:blur(4px);animation:pulse2 2.6s ease-in-out infinite}
+@keyframes pulse2{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}}
+@media(prefers-reduced-motion:reduce){.locard-glow{animation:none}}
+.locard-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px 22px;
+  background:linear-gradient(0deg,rgba(15,9,6,.96),rgba(15,9,6,.4) 60%,transparent)}
+.locard-name{display:block;font-family:var(--display);font-size:1.35rem;color:var(--ink);line-height:1}
+.locard-addr{display:block;font-size:.86rem;color:var(--muted);margin-top:5px}
+.map-bar{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+
+/* ---------- Reviews ---------- */
+.rev-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:34px;align-items:center}
+.rev-score{text-align:center;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:38px 24px}
+.rev-score .big{font-family:var(--display);font-size:5rem;line-height:.9;color:var(--ink);font-weight:400}
+.rev-score .big sup{font-size:1.6rem;color:var(--gold);vertical-align:super}
+.rev-score .stars{margin:10px 0;font-size:0}
+.rev-score .stars svg{width:22px;height:22px;margin:0 1px}
+.rev-score .meta{color:var(--muted);font-size:.92rem}
+.rev-score .src{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:.85rem;color:var(--ember-2);font-weight:700}
+.loves{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.love{background:var(--bg-card);border:1px solid var(--line);border-radius:13px;padding:18px}
+.love .li{width:36px;height:36px;border-radius:9px;background:rgba(226,104,59,.12);display:grid;place-items:center;color:var(--ember-2);margin-bottom:11px}
+.love .li svg{width:18px;height:18px}
+.love h4{font-family:var(--body);font-weight:700;font-size:1rem;margin-bottom:4px}
+.love p{font-size:.85rem;color:var(--muted);line-height:1.5}
+
+/* ---------- CTA band ---------- */
+.band{position:relative;border-radius:26px;overflow:hidden;padding:60px 40px;text-align:center;
+  background:linear-gradient(160deg,#2a1812,#1a100c);border:1px solid var(--line)}
+.band::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 50% 0%,rgba(226,104,59,.22),transparent 60%)}
+.band > *{position:relative}
+.band h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:400;margin-bottom:14px}
+.band h2 em{font-style:italic;color:var(--ember-2)}
+.band p{color:var(--muted);max-width:48ch;margin:0 auto 28px}
+.band .hero-cta{justify-content:center}
+
+/* ---------- Footer ---------- */
+.foot{border-top:1px solid var(--line);padding:56px 0 30px;margin-top:30px;background:rgba(0,0,0,.2)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.foot h5{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:16px;font-weight:700;font-family:var(--body)}
+.foot ul{list-style:none}
+.foot li{margin-bottom:9px}
+.foot a,.foot .fl{color:var(--muted);font-size:.92rem;transition:color .2s}
+.foot a:hover{color:var(--ember-2)}
+.foot .fbrand .brand-name{font-size:1.7rem;margin-bottom:10px}
+.foot .fbrand p{color:var(--faint);font-size:.9rem;max-width:34ch}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  margin-top:44px;padding-top:22px;border-top:1px solid var(--line-2);font-size:.82rem;color:var(--faint)}
+
+/* ---------- Modal ---------- */
+.overlay{position:fixed;inset:0;z-index:90;background:rgba(8,5,3,.72);backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .25s}
+.overlay.open{display:flex;opacity:1}
+.modal{background:var(--bg-2);border:1px solid var(--line);border-radius:22px;max-width:560px;width:100%;
+  max-height:88vh;overflow:auto;box-shadow:0 50px 100px -40px #000;transform:translateY(14px) scale(.98);transition:transform .28s}
+.overlay.open .modal{transform:none}
+.modal-head{padding:26px 26px 18px;position:sticky;top:0;background:var(--bg-2);border-bottom:1px solid var(--line-2);z-index:2}
+.modal-head .eyebrow{margin-bottom:8px}
+.modal-head h3{font-size:1.8rem;font-weight:500}
+.modal-head p{font-size:.88rem;color:var(--muted);margin-top:4px}
+.modal-close{position:absolute;top:20px;right:20px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center}
+.modal-close:hover{border-color:var(--ember);color:var(--ember-2)}
+.modal-close svg{width:18px;height:18px}
+.modal-body{padding:18px 26px 26px;display:grid;gap:10px}
+
+/* mobile nav drawer */
+.drawer{position:fixed;inset:0;z-index:80;background:rgba(12,8,5,.97);display:none;flex-direction:column;padding:90px 28px 28px}
+.drawer.open{display:flex}
+.drawer a{font-family:var(--display);font-size:2rem;padding:14px 0;border-bottom:1px solid var(--line-2);color:var(--ink)}
+.drawer .btn{margin-top:24px;padding:16px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- Responsive ---------- */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-art{max-width:420px}
+  .info-grid,.rev-grid{grid-template-columns:1fr;gap:24px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav{display:none}
+  .hamburger{display:flex}
+  .hdr-actions{gap:9px}
+  .hdr-actions .lang{display:inline-flex}
+  .hdr-actions .lang button{padding:7px 11px;font-size:.76rem}
+  .hero{padding:120px 0 50px}
+  .items{grid-template-columns:1fr;gap:0 0}
+  .loves{grid-template-columns:1fr}
+  .menubar{top:56px}
+  .cat{scroll-margin-top:200px}
+  .band{padding:46px 22px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .desk-only{display:none}
+}
+@media(max-width:480px){
+  .foot-grid{grid-template-columns:1fr}
+  .brand-sub{display:none}
+  .order-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-row">
+    <a href="#top" class="brand" aria-label="JoJaChix home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 14c4-1.5 6-1.5 9 0s5 1.5 9 0" stroke="#1a0c06" stroke-width="1.6" stroke-linecap="round"/><path d="M4 17c4-1.2 6-1.2 8 0s4 1.2 8 0" stroke="#1a0c06" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><circle cx="12" cy="8.5" r="2.1" fill="#1a0c06"/></svg>
+      </span>
+      <span>
+        <span class="brand-name">JoJa<b>Chix</b></span>
+        <span class="brand-sub" data-i18n="brandSub">Sushi · Brooklyn</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#menu" data-i18n="navMenu">Menu</a>
+      <a href="#order" data-i18n="navOrder">Order</a>
+      <a href="#reviews" data-i18n="navReviews">Reviews</a>
+      <a href="#info" data-i18n="navInfo">Visit</a>
+    </nav>
+
+    <div class="hdr-actions">
+      <div class="lang" role="group" aria-label="Language">
+        <button id="lang-en" class="on" onclick="setLang('en')">EN</button>
+        <button id="lang-ru" onclick="setLang('ru')">RU</button>
+      </div>
+      <button class="btn btn-ember desk-only" onclick="openOrder()">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.3a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/></svg>
+        <span data-i18n="orderNow">Order now</span>
+      </button>
+      <button class="hamburger" onclick="toggleDrawer()" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <a href="#menu" onclick="toggleDrawer()" data-i18n="navMenu">Menu</a>
+  <a href="#order" onclick="toggleDrawer()" data-i18n="navOrder">Order</a>
+  <a href="#reviews" onclick="toggleDrawer()" data-i18n="navReviews">Reviews</a>
+  <a href="#info" onclick="toggleDrawer()" data-i18n="navInfo">Visit</a>
+  <button class="btn btn-ember" onclick="toggleDrawer();openOrder()" style="margin-top:24px"><span data-i18n="orderNow">Order now</span></button>
+</div>
+
+<!-- ===== HERO ===== -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="hero-rating">
+        <span class="stars" id="hero-stars" aria-hidden="true"></span>
+        <b>4.9</b><span data-i18n="ratingMeta">· 521 Google reviews</span>
+      </span>
+      <p class="eyebrow" data-i18n="heroEyebrow">Sheepshead Bay · Japanese-fusion</p>
+      <h1><span class="a">JoJa</span><span class="b">Chix</span></h1>
+      <p class="hero-tag" data-i18n="heroTag">Torch-seared sushi, on the Brooklyn waterfront.</p>
+      <p class="hero-desc" data-i18n="heroDesc">Pristine nigiri and sashimi, flame-kissed aburi, hand-rolled maki, and a full kitchen — from filet mignon tagliatelle to a dry-aged burger.</p>
+      <div class="hero-meta">
+        <span class="chip live"><span class="dot" id="open-dot"></span><b id="open-text">Open now</b></span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg><span data-i18n="heroAddr">1809 Emmons Ave, Brooklyn</span></span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 9 6 15 15 15v-3.2a1.3 1.3 0 0 0-1-1.3l-3-.7-1.8 1.8a11 11 0 0 1-5.8-5.8l1.8-1.8-.7-3A1.3 1.3 0 0 0 7.2 4H4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span data-i18n="priceRange">$20–80 / person</span></span>
+      </div>
+      <div class="hero-cta">
+        <button class="btn btn-ember" onclick="openOrder()">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.3a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/></svg>
+          <span data-i18n="orderPickupDelivery">Order pickup or delivery</span>
+        </button>
+        <a class="btn btn-ghost" href="#menu" data-i18n="viewMenu">View the menu</a>
+      </div>
+    </div>
+
+    <div class="hero-art reveal">
+      <div class="dishcard">
+        <!-- To use a real photo, set background-image on .dish-img below -->
+        <div class="dish-img" id="hero-photo"></div>
+        <div class="dish-glow"></div>
+        <div class="dish-svg" aria-hidden="true">
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+            <ellipse cx="100" cy="118" rx="64" ry="20" fill="#f3ece1" opacity=".95"/>
+            <ellipse cx="100" cy="112" rx="64" ry="20" fill="#fbf6ee"/>
+            <path d="M44 110c8-22 104-22 112 0" stroke="#e8c9b0" stroke-width="2" opacity=".6"/>
+            <path d="M40 96c10-16 30-26 60-26s50 10 60 26c-6 10-30 16-60 16s-54-6-60-16Z" fill="#e2683b"/>
+            <path d="M40 96c10-16 30-26 60-26s50 10 60 26" stroke="#f4925b" stroke-width="3" stroke-linecap="round"/>
+            <path d="M58 86c12-9 72-9 84 0" stroke="#9c3d20" stroke-width="2" opacity=".5"/>
+            <circle cx="78" cy="84" r="2.2" fill="#fff" opacity=".5"/><circle cx="120" cy="82" r="2" fill="#fff" opacity=".4"/>
+            <path d="M150 64c6-10 16-12 22-8-2 8-10 14-18 14" fill="#c9d18a"/>
+          </svg>
+        </div>
+        <span class="dish-badge"><span class="pulse"></span><span data-i18n="freshDaily">Fresh fish daily</span></span>
+        <div class="dish-cap">
+          <span class="k" data-i18n="signature">Signature</span>
+          <h3 data-i18n="aburiTitle">Aburi Sake</h3>
+          <p data-i18n="aburiDesc">Torch-seared Faroe Islands salmon · buttery, smoky finish</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- marquee -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track" id="strip"></div>
+</div>
+
+<!-- ===== ORDER ===== -->
+<section class="section" id="order">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="sear"></div>
+      <h2 data-i18n="orderHead">Order in <em data-i18n="orderHeadEm">a few taps</em></h2>
+      <p data-i18n="orderSub">Pickup or delivery through your favorite app. Ordering direct on Clover keeps the most going to the kitchen.</p>
+    </div>
+    <div class="order-grid reveal" id="order-grid"></div>
+    <div class="order-foot reveal">
+      <span data-i18n="orderCall">Prefer to call?</span>
+      <a href="tel:+17182474343">+1 718-247-4343</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="section" id="menu" style="padding-top:30px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="sear"></div>
+      <h2 data-i18n="menuHead">The <em data-i18n="menuHeadEm">menu</em></h2>
+      <p data-i18n="menuSub">Sushi cut to order, rolls, a Western-leaning kitchen, and a drinks program worth the trip. Prices per item.</p>
+    </div>
+  </div>
+
+  <div class="menubar">
+    <div class="wrap">
+      <div class="tabs" id="tabs"></div>
+      <div class="pills" id="pills"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div id="menu-body"></div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="sear"></div>
+      <h2 data-i18n="revHead">Loved in <em data-i18n="revHeadEm">the neighborhood</em></h2>
+    </div>
+    <div class="rev-grid reveal">
+      <div class="rev-score">
+        <div class="big">4.9<sup>★</sup></div>
+        <div class="stars" id="rev-stars" aria-hidden="true"></div>
+        <div class="meta"><span data-i18n="revOf">Average of</span> <b>521</b> <span data-i18n="revReviews">reviews</span></div>
+        <a class="src" href="https://www.google.com/maps/search/?api=1&query=JoJaChix%201809%20Emmons%20Ave%20Brooklyn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 12c0-.7-.1-1.4-.2-2H12v4h5.1a4.4 4.4 0 0 1-1.9 2.9v2.4h3.1C20.3 17.5 21 15 21 12Z" fill="#4285F4"/><path d="M12 21c2.6 0 4.8-.9 6.3-2.3l-3.1-2.4c-.9.6-2 .9-3.2.9-2.5 0-4.6-1.7-5.3-3.9H3.5v2.5A9 9 0 0 0 12 21Z" fill="#34A853"/><path d="M6.7 13.3a5.4 5.4 0 0 1 0-3.4V7.4H3.5a9 9 0 0 0 0 8.1l3.2-2.2Z" fill="#FBBC05"/><path d="M12 6.6c1.4 0 2.7.5 3.7 1.4l2.7-2.7A9 9 0 0 0 3.5 7.4l3.2 2.5C7.4 7.7 9.5 6.6 12 6.6Z" fill="#EA4335"/></svg>
+          <span data-i18n="revGoogle">See reviews on Google</span>
+        </a>
+      </div>
+      <div class="loves" id="loves"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFO / VISIT ===== -->
+<section class="section" id="info">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="sear"></div>
+      <h2 data-i18n="infoHead">Find <em data-i18n="infoHeadEm">us</em></h2>
+      <p data-i18n="infoSub">On Emmons Avenue along the Sheepshead Bay waterfront. Open every day, 11 AM to 11 PM.</p>
+    </div>
+    <div class="info-grid reveal">
+      <div class="info-left">
+        <div class="panel" style="margin-bottom:18px">
+          <h3 data-i18n="hoursTitle">Hours</h3>
+          <div class="sub" data-i18n="hoursSub">Open 7 days a week</div>
+          <div id="hours"></div>
+        </div>
+        <div class="panel">
+          <h3 data-i18n="contactTitle">Contact</h3>
+          <div class="sub" data-i18n="contactSub">Call, visit, or get directions</div>
+          <div class="contact-line">
+            <span class="ci"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg></span>
+            <div><div class="cl" data-i18n="addrLabel">Address</div><div class="cv">1809 Emmons Ave, Brooklyn, NY 11235</div></div>
+          </div>
+          <div class="contact-line">
+            <span class="ci"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 9 6 15 15 15v-3.2a1.3 1.3 0 0 0-1-1.3l-3-.7-1.8 1.8a11 11 0 0 1-5.8-5.8l1.8-1.8-.7-3A1.3 1.3 0 0 0 7.2 4H4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+            <div><div class="cl" data-i18n="phoneLabel">Phone</div><a class="cv" href="tel:+17182474343">+1 718-247-4343</a></div>
+          </div>
+          <div class="contact-line">
+            <span class="ci"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><div class="cl" data-i18n="servicesLabel">Service options</div><div class="cv" data-i18n="services">Dine-in · Takeout · Delivery</div></div>
+          </div>
+          <div class="contact-line">
+            <span class="ci"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 12h17M12 3.5c2.5 2.4 2.5 14.6 0 17M12 3.5c-2.5 2.4-2.5 14.6 0 17" stroke="currentColor" stroke-width="1.4"/></svg></span>
+            <div><div class="cl" data-i18n="pluscodeLabel">Plus code</div><div class="cv">H2MX+GX Brooklyn, New York</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="info-right">
+        <a class="locard" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=1809+Emmons+Ave,+Brooklyn,+NY+11235" aria-label="Open JoJaChix location in Google Maps">
+          <span class="locard-pin">
+            <span class="locard-glow"></span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12Z" fill="#e2683b" stroke="#f4925b" stroke-width="1.4"/><circle cx="12" cy="9.5" r="2.6" fill="#160e0a"/></svg>
+          </span>
+          <span class="locard-cap">
+            <span class="locard-name">JoJaChix</span>
+            <span class="locard-addr">1809 Emmons Ave · Sheepshead Bay, Brooklyn</span>
+          </span>
+        </a>
+        <div class="map-bar">
+          <a class="btn btn-ember" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=1809+Emmons+Ave,+Brooklyn,+NY+11235">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg>
+            <span data-i18n="getDirections">Get directions</span>
+          </a>
+          <button class="btn btn-ghost" onclick="openOrder()"><span data-i18n="orderNow">Order now</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="section" style="padding-top:10px">
+  <div class="wrap">
+    <div class="band reveal">
+      <p class="eyebrow" style="justify-content:center" data-i18n="bandEyebrow">Hungry yet?</p>
+      <h2 data-i18n="bandHead">Your table — or your <em data-i18n="bandHeadEm">door</em>.</h2>
+      <p data-i18n="bandSub">Skip the wait. Order pickup or delivery now, or call to reserve.</p>
+      <div class="hero-cta">
+        <button class="btn btn-ember" onclick="openOrder()"><span data-i18n="orderNow">Order now</span></button>
+        <a class="btn btn-ghost" href="tel:+17182474343"><span data-i18n="callUs">Call +1 718-247-4343</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="fbrand">
+        <span class="brand-name">JoJa<b>Chix</b></span>
+        <p data-i18n="footAbout">Japanese-fusion sushi on the Sheepshead Bay waterfront. Cut to order, seared to finish.</p>
+      </div>
+      <div>
+        <h5 data-i18n="footExplore">Explore</h5>
+        <ul>
+          <li><a href="#menu" data-i18n="navMenu">Menu</a></li>
+          <li><a href="#order" data-i18n="navOrder">Order</a></li>
+          <li><a href="#reviews" data-i18n="navReviews">Reviews</a></li>
+          <li><a href="#info" data-i18n="navInfo">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footOrder">Order online</h5>
+        <ul id="foot-order"></ul>
+      </div>
+      <div>
+        <h5 data-i18n="footVisit">Visit</h5>
+        <ul>
+          <li class="fl">1809 Emmons Ave</li>
+          <li class="fl">Brooklyn, NY 11235</li>
+          <li><a href="tel:+17182474343">+1 718-247-4343</a></li>
+          <li class="fl" data-i18n="footHours">Daily 11:00–23:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> JoJaChix. <span data-i18n="footRights">All rights reserved.</span></span>
+      <span data-i18n="footMade">Sheepshead Bay, Brooklyn · New York</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== ORDER MODAL ===== -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeOrder()">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-head">
+      <button class="modal-close" onclick="closeOrder()" aria-label="Close"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button>
+      <p class="eyebrow" data-i18n="modalEyebrow">Pickup & delivery</p>
+      <h3 id="modal-title" data-i18n="modalTitle">Where would you like to order?</h3>
+      <p data-i18n="modalSub">Choose a platform — it opens in a new tab.</p>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+/* ============ DATA ============ */
+const ORDER = [
+  {key:'clover',  name:'Clover',       color:'#3aa856', note:{en:'Order direct from JoJaChix',ru:'Заказ напрямую у JoJaChix'}, best:true,
+    url:'https://jojachix-brooklyn.cloveronline.com/'},
+  {key:'doordash',name:'DoorDash',     color:'#eb1700', note:{en:'Delivery & pickup',ru:'Доставка и самовывоз'},
+    url:'https://doordash.com/store/jojachix-brooklyn-44191953/108429600'},
+  {key:'ubereats',name:'Uber Eats',    color:'#06c167', note:{en:'Delivery & pickup',ru:'Доставка и самовывоз'},
+    url:'https://www.ubereats.com/store/jojachix/bVNxm04hXoeb3g8AWukDRg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnH1NljjFj2vXWucKzPp7Ac_O723OWLCij1t49HZba_bhEQHZqooVekZS1fXaLdxyB5wpR9BY_U0T9d4zqPlEzjPeDY-vqqeiWVK8ymdjUJ5e65JnYI%3D'},
+  {key:'grubhub', name:'Grubhub',      color:'#f63440', note:{en:'Delivery & pickup',ru:'Доставка и самовывоз'},
+    url:'https://www.grubhub.com/restaurant/jojachix-1809-emmons-avenue-brooklyn'},
+  {key:'seamless',name:'Seamless',     color:'#ff8000', note:{en:'Delivery & pickup',ru:'Доставка и самовывоз'},
+    url:'https://www.seamless.com/menu/jojachix-1809-emmons-avenue-brooklyn'},
+  {key:'postmates',name:'Postmates',   color:'#cda349', note:{en:'Delivery & pickup',ru:'Доставка и самовывоз'},
+    url:'https://postmates.com/store/jojachix/bVNxm04hXoeb3g8AWukDRg?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnFsIYeoPhaEXh55e1oL6vsh9FoFR9rDmwq6akh-e1ZtzT14y17D-JnopAk-gy4rnuYJE6_aouJRGbVLPLw84WAT_1bjd3iFuWt7v_pcssfjf6MF8TU%3D'},
+  {key:'order',   name:'order.online', color:'#e2683b', note:{en:'Pickup',ru:'Самовывоз'},
+    url:'https://order.online/store/-44191953/?pickup=true&hideModal=true&utm_source=gfo&rwg_token=AFd1xnHATRlcOffyRHiFtEE8Q1vdOQS_l6u_CbAYF3qz-1c7RNwLEgKAdgblDY22qb6jiDyc2Yn1F8kdKjSxtiOqVmvQVD82pPO-3lBXUy2wgDEVKQkx5O8%3D'}
+];
+
+const GROUPS = [
+  {id:'all',     en:'All',             ru:'Всё'},
+  {id:'sushi',   en:'Sushi & Sashimi', ru:'Суши и сашими'},
+  {id:'rolls',   en:'Rolls',           ru:'Роллы'},
+  {id:'kitchen', en:'Kitchen',         ru:'Кухня'},
+  {id:'drinks',  en:'Drinks',          ru:'Напитки'},
+  {id:'sweets',  en:'Sweets',          ru:'Десерты'}
+];
+
+/* feat flags: aburi=torch-seared, spicy, raw */
+const MENU = [
+  {g:'sushi', id:'nigiri', en:'Nigiri Sushi', ru:'Нигири-суши', items:[
+    {en:'Hotate',ru:'Хотате',d_en:'Sweet fresh scallop, delicate texture · 1 pc',d_ru:'Сладкий свежий гребешок, нежная текстура · 1 шт',p:3.99},
+    {en:'Sake',ru:'Саке',d_en:'Fresh Faroe Islands salmon · 1 pc',d_ru:'Свежий лосось с Фарерских островов · 1 шт',p:3.99},
+    {en:'Hamachi',ru:'Хамачи',d_en:'Fresh yellowtail, rich buttery flavor · 1 pc',d_ru:'Свежий желтохвост, насыщенный сливочный вкус · 1 шт',p:3.99},
+    {en:'Tuna Akami',ru:'Тунец Аками',d_en:'Bluefin tuna, clean rich flavor · 1 pc',d_ru:'Голубой тунец, чистый насыщенный вкус · 1 шт',p:3.99},
+    {en:'Tuna Chutoro',ru:'Тунец Чуторо',d_en:'Medium fatty tuna, rich buttery flavor · 1 pc',d_ru:'Среднежирный тунец, насыщенный сливочный вкус · 1 шт',p:3.99},
+    {en:'Ebi',ru:'Эби',d_en:'Tender cooked Ecuador white shrimp · 1 pc',d_ru:'Нежная отварная белая креветка из Эквадора · 1 шт',p:3.99},
+    {en:'Botan Ebi',ru:'Ботан Эби',d_en:'Sweet spot prawn · 1 pc',d_ru:'Сладкая пятнистая креветка · 1 шт',p:3.99},
+    {en:'Saygo',ru:'Сайго',d_en:'Delicate sea bass · 1 pc',d_ru:'Нежный сибас · 1 шт',p:3.99},
+    {en:'Unagi',ru:'Унаги',d_en:'Smoked freshwater eel · 1 pc',d_ru:'Копчёный пресноводный угорь · 1 шт',p:3.99}
+  ]},
+  {g:'sushi', id:'aburi', en:'Aburi Sushi', ru:'Абури-суши', feat:'aburi', items:[
+    {en:'Aburi Sake',ru:'Абури Саке',d_en:'Torch-seared Faroe Islands salmon, rich buttery flavor · 1 pc',d_ru:'Лосось с Фарерских островов, обожжённый горелкой, насыщенный сливочный вкус · 1 шт',p:4.19,feat:'aburi'},
+    {en:'Aburi Tuna Chutoro',ru:'Абури Тунец Чуторо',d_en:'Torch-seared medium fatty tuna, rich buttery flavor · 1 pc',d_ru:'Среднежирный тунец, обожжённый горелкой, насыщенный сливочный вкус · 1 шт',p:4.19,feat:'aburi'},
+    {en:'Aburi Tuna Akami',ru:'Абури Тунец Аками',d_en:'Torch-seared lean tuna, clean rich flavor · 1 pc',d_ru:'Постный тунец, обожжённый горелкой, чистый насыщенный вкус · 1 шт',p:4.19,feat:'aburi'},
+    {en:'Aburi Hamachi',ru:'Абури Хамачи',d_en:'Torch-seared yellowtail, rich buttery flavor · 1 pc',d_ru:'Желтохвост, обожжённый горелкой, насыщенный сливочный вкус · 1 шт',p:4.19,feat:'aburi'},
+    {en:'Aburi Hotate',ru:'Абури Хотате',d_en:'Torch-seared scallop, delicate sweet flavor · 1 pc',d_ru:'Гребешок, обожжённый горелкой, нежный сладкий вкус · 1 шт',p:4.19,feat:'aburi'},
+    {en:'Aburi Saygo',ru:'Абури Сайго',d_en:'Torch-seared sea bass, delicate ocean flavor · 1 pc',d_ru:'Сибас, обожжённый горелкой, нежный морской вкус · 1 шт',p:4.19,feat:'aburi'},
+    {en:'Aburi Unagi',ru:'Абури Унаги',d_en:'Torch-seared eel, sweet soy glaze, smoky flavor · 1 pc',d_ru:'Угорь, обожжённый горелкой, сладкая соевая глазурь, дымный вкус · 1 шт',p:4.19,feat:'aburi'}
+  ]},
+  {g:'sushi', id:'kappa', en:'Kappa Sushi · Spicy', ru:'Каппа-суши · острые', feat:'spicy', items:[
+    {en:'Hotate Spicy',ru:'Хотате острый',d_en:'Spicy scallop, crisp cucumber, creamy sauce, light chili kick · 1 pc',d_ru:'Острый гребешок, хрустящий огурец, кремовый соус, лёгкая острота · 1 шт',p:4.49,feat:'spicy'},
+    {en:'Ebi Spicy',ru:'Эби острый',d_en:'Spicy white shrimp, crisp cucumber, creamy sauce, light chili kick · 1 pc',d_ru:'Острая белая креветка, хрустящий огурец, кремовый соус, лёгкая острота · 1 шт',p:4.49,feat:'spicy'},
+    {en:'Kani Spicy',ru:'Кани острый',d_en:'Spicy crab meat, crisp cucumber, creamy sauce, light chili kick · 1 pc',d_ru:'Острое крабовое мясо, хрустящий огурец, кремовый соус, лёгкая острота · 1 шт',p:4.49,feat:'spicy'}
+  ]},
+  {g:'sushi', id:'sashimi', en:'Sashimi', ru:'Сашими', items:[
+    {en:'Botan Ebi',ru:'Ботан Эби',d_en:'Sweet spot prawns, fresh with delicate buttery flavor',d_ru:'Сладкие пятнистые креветки, свежие, с нежным сливочным вкусом',p:29.99},
+    {en:'Hamachi',ru:'Хамачи',d_en:'Delicate yellowtail, rich buttery flavor',d_ru:'Нежный желтохвост, насыщенный сливочный вкус',p:17.99},
+    {en:'Tuna Chutoro',ru:'Тунец Чуторо',d_en:'Premium raw medium-fat tuna, traditional accompaniments',d_ru:'Премиальный сырой среднежирный тунец с традиционными дополнениями',p:17.99},
+    {en:'Hotate',ru:'Хотате',d_en:'Sweet fresh scallops, soft and delicate',d_ru:'Сладкие свежие гребешки, мягкие и нежные',p:16.99}
+  ]},
+  {g:'sushi', id:'oshizushi', en:'Oshizushi', ru:'Осидзуси', items:[
+    {en:'Botan Ebi Oshizushi',ru:'Ботан Эби Осидзуси',d_en:'Pressed sushi · sweet spot prawns, delicate rice, pike caviar, cucumber',d_ru:'Прессованные суши · сладкие пятнистые креветки, нежный рис, икра щуки, огурец',p:24.99}
+  ]},
+
+  {g:'rolls', id:'rolls', en:'Rolls', ru:'Роллы', items:[
+    {en:'Pyramid Roll',ru:'Ролл «Пирамида»',d_en:'Salmon, crab, avocado, white shrimp, Japanese mayo, tobiko',d_ru:'Лосось, краб, авокадо, белая креветка, японский майонез, тобико',p:19.99},
+    {en:'California Roll',ru:'Калифорния ролл',d_en:'Crab, avocado, Japanese mayo, tobiko',d_ru:'Краб, авокадо, японский майонез, тобико',p:19.99},
+    {en:'Philadelphia Roll',ru:'Филадельфия ролл',d_en:'Salmon, cream cheese, cucumber, caviar',d_ru:'Лосось, сливочный сыр, огурец, икра',p:17.99},
+    {en:'Canada Roll',ru:'Канада ролл',d_en:'Smoked eel, avocado, cream cheese, salmon, sesame, aji-amarillo sauce',d_ru:'Копчёный угорь, авокадо, сливочный сыр, лосось, кунжут, соус ахи-амарильо',p:17.99}
+  ]},
+  {g:'rolls', id:'yaki', en:'Yaki Roll', ru:'Яки-роллы', items:[
+    {en:'Crab & Shrimp Yaki',ru:'Яки с крабом и креветкой',d_en:'Baked roll · crab, white shrimp, cream cheese, cucumber, wasabi oil, mozzarella, tobiko',d_ru:'Запечённый ролл · краб, белая креветка, сливочный сыр, огурец, масло васаби, моцарелла, тобико',p:22.99}
+  ]},
+  {g:'rolls', id:'hotroll', en:'Hot Roll', ru:'Горячие роллы', items:[
+    {en:'Crab & Hamachi Hot Roll',ru:'Горячий ролл с крабом и хамачи',d_en:'Warm crispy roll · crab, yellowtail, cream cheese',d_ru:'Тёплый хрустящий ролл · краб, желтохвост, сливочный сыр',p:15.99}
+  ]},
+  {g:'rolls', id:'maki', en:'Maki', ru:'Маки', items:[
+    {en:'Ebi Maki',ru:'Эби маки',d_en:'Roll with shrimp',d_ru:'Ролл с креветкой',p:8.99},
+    {en:'Avocado Maki',ru:'Авокадо маки',d_en:'Roll with avocado',d_ru:'Ролл с авокадо',p:5.99},
+    {en:'Kappa Maki',ru:'Каппа маки',d_en:'Roll with cucumber',d_ru:'Ролл с огурцом',p:5.99}
+  ]},
+
+  {g:'kitchen', id:'ceviche', en:'Ceviche', ru:'Севиче', items:[
+    {en:'Hotate Ceviche',ru:'Хотате севиче',d_en:'Marinated scallops, citrus, fresh vegetables, herbs, light sweet-sour dressing',d_ru:'Маринованные гребешки, цитрус, свежие овощи, зелень, лёгкая кисло-сладкая заправка',p:18.99},
+    {en:'Ebi Ceviche',ru:'Эби севиче',d_en:'Marinated shrimp, citrus, fresh vegetables, herbs, light sweet-sour dressing',d_ru:'Маринованные креветки, цитрус, свежие овощи, зелень, лёгкая кисло-сладкая заправка',p:18.99}
+  ]},
+  {g:'kitchen', id:'salad', en:'Salad', ru:'Салаты', items:[
+    {en:'Chicken Caesar Salad',ru:'Салат «Цезарь» с курицей',d_en:'Romaine, grilled chicken, parmesan, croutons, creamy Caesar dressing',d_ru:'Романо, курица гриль, пармезан, гренки, кремовая заправка «Цезарь»',p:18.99},
+    {en:'Crispy Eggplant',ru:'Хрустящий баклажан',d_en:'Crispy eggplant, fresh vegetables, savory Asian-style sauce',d_ru:'Хрустящий баклажан, свежие овощи, пикантный соус в азиатском стиле',p:18.99},
+    {en:'Greek Salad',ru:'Греческий салат',d_en:'Fresh vegetables, feta, olives, oregano dressing',d_ru:'Свежие овощи, фета, оливки, заправка с орегано',p:17.99}
+  ]},
+  {g:'kitchen', id:'soup', en:'Soup', ru:'Супы', items:[
+    {en:'Cream of Mushroom Soup',ru:'Крем-суп из грибов',d_en:'',d_ru:'',p:15.99},
+    {en:'Cream of Pumpkin Soup',ru:'Крем-суп из тыквы',d_en:'',d_ru:'',p:15.99}
+  ]},
+  {g:'kitchen', id:'pasta', en:'Pasta', ru:'Паста', items:[
+    {en:'Filet Mignon Tagliatelle',ru:'Тальятелле с филе-миньон',d_en:'Tagliatelle, tender filet mignon, creamy sauce, parmesan',d_ru:'Тальятелле, нежный филе-миньон, кремовый соус, пармезан',p:23.99},
+    {en:'Fusilli Scampi',ru:'Фузилли скампи',d_en:'Fusilli, shrimp, garlic butter sauce, herbs, parmesan',d_ru:'Фузилли, креветки, чесночно-сливочный соус, зелень, пармезан',p:19.99}
+  ]},
+  {g:'kitchen', id:'burger', en:'Burger', ru:'Бургеры', items:[
+    {en:'Dry-Aged Prime Beef Burger',ru:'Бургер из выдержанной говядины прайм',d_en:'Dry-aged prime beef, vegetables, brioche bun, house sauce',d_ru:'Выдержанная говядина прайм, овощи, булочка бриошь, фирменный соус',p:24.99}
+  ]},
+  {g:'kitchen', id:'meat', en:'Meat', ru:'Мясо', items:[
+    {en:'Rack of Lamb with Gratin',ru:'Каре ягнёнка с гратеном',d_en:'',d_ru:'',p:39.99},
+    {en:'Beef Cheeks with Mashed Potatoes',ru:'Говяжьи щёки с картофельным пюре',d_en:'',d_ru:'',p:26.99}
+  ]},
+  {g:'kitchen', id:'chicken', en:'Chicken', ru:'Курица', items:[
+    {en:'Chicken Burger',ru:'Куриный бургер',d_en:'Chicken, vegetables, brioche bun, garlic sauce, spices',d_ru:'Курица, овощи, булочка бриошь, чесночный соус, специи',p:19.99},
+    {en:'Joja Signature Chicken',ru:'Фирменная курица Joja',d_en:'',d_ru:'',p:16.99}
+  ]},
+  {g:'kitchen', id:'sides', en:'Sides', ru:'Гарниры', items:[
+    {en:'Bread Basket',ru:'Хлебная корзина',d_en:'',d_ru:'',p:7.99},
+    {en:'Basmati Rice',ru:'Рис басмати',d_en:'',d_ru:'',p:7.99},
+    {en:'Mashed Potatoes',ru:'Картофельное пюре',d_en:'',d_ru:'',p:7.99},
+    {en:'French Fries',ru:'Картофель фри',d_en:'',d_ru:'',p:7.99}
+  ]},
+  {g:'kitchen', id:'sauce', en:'Sauce', ru:'Соусы', items:[
+    {en:'Garlic Sauce',ru:'Чесночный соус',d_en:'',d_ru:'',p:2.99}
+  ]},
+  {g:'kitchen', id:'kids', en:'For Kids', ru:'Детское меню', items:[
+    {en:'Beef Mini Burger',ru:'Мини-бургер с говядиной',d_en:'',d_ru:'',p:14.99},
+    {en:'Chicken Cutlets Joja',ru:'Куриные котлетки Joja',d_en:'',d_ru:'',p:13.99},
+    {en:'Joja Chicken Strips',ru:'Куриные стрипсы Joja',d_en:'',d_ru:'',p:13.99}
+  ]},
+
+  {g:'drinks', id:'matcha', en:'Matcha · 20 oz', ru:'Матча · 20 oz', items:[
+    {en:'Kiwi Matcha Dream',ru:'Матча с киви',d_en:'',d_ru:'',p:12.99},
+    {en:'Matcha Strawberry',ru:'Матча с клубникой',d_en:'',d_ru:'',p:11.99},
+    {en:'Matcha Classic',ru:'Классическая матча',d_en:'',d_ru:'',p:10.99}
+  ]},
+  {g:'drinks', id:'bubble', en:'Bubble Tea · 15 oz', ru:'Бабл-ти · 15 oz', items:[
+    {en:'Berry Creamy Dream',ru:'Ягодно-сливочный',d_en:'',d_ru:'',p:11.99},
+    {en:'Lavender Sky',ru:'Лавандовое небо',d_en:'',d_ru:'',p:11.99},
+    {en:'Choco Nut Bliss',ru:'Шоколадно-ореховый',d_en:'',d_ru:'',p:11.99}
+  ]},
+  {g:'drinks', id:'sigtea', en:'Signature Tea · 42 oz', ru:'Фирменный чай · 42 oz', items:[
+    {en:'Lavender Garden',ru:'Лавандовый сад',d_en:'',d_ru:'',p:18.99},
+    {en:'Sea Buckthorn Tea',ru:'Облепиховый чай',d_en:'',d_ru:'',p:18.99}
+  ]},
+  {g:'drinks', id:'classtea', en:'Classic Tea · 32 oz', ru:'Классический чай · 32 oz', items:[
+    {en:'Earl Grey',ru:'Эрл Грей',d_en:'',d_ru:'',p:9.99},
+    {en:'Green Tea',ru:'Зелёный чай',d_en:'',d_ru:'',p:9.99},
+    {en:'Black Lemon Tea',ru:'Чёрный чай с лимоном',d_en:'',d_ru:'',p:9.99},
+    {en:"Pu'er Tea",ru:'Чай пуэр',d_en:'',d_ru:'',p:9.99},
+    {en:'Decaf Tea',ru:'Чай без кофеина',d_en:'',d_ru:'',p:9.99}
+  ]},
+  {g:'drinks', id:'lemonade', en:'Lemonades · 20 oz', ru:'Лимонады · 20 oz', items:[
+    {en:'Mango Passion Fruit',ru:'Манго-маракуйя',d_en:'',d_ru:'',p:11.99},
+    {en:'Neon Island',ru:'Неоновый остров',d_en:'',d_ru:'',p:11.99},
+    {en:'Berry Lemonade',ru:'Ягодный лимонад',d_en:'',d_ru:'',p:11.99},
+    {en:'Cucumber Breeze',ru:'Огуречный бриз',d_en:'',d_ru:'',p:10.99}
+  ]},
+  {g:'drinks', id:'juiceballs', en:'Juice Balls · 15 oz', ru:'Соковые шарики · 15 oz', items:[
+    {en:'Magic Peach',ru:'Волшебный персик',d_en:'',d_ru:'',p:10.99},
+    {en:'Golden Tropic',ru:'Золотые тропики',d_en:'',d_ru:'',p:10.99}
+  ]},
+  {g:'drinks', id:'milkshake', en:'Milkshakes · 15 oz', ru:'Молочные коктейли · 15 oz', items:[
+    {en:'Oreo Milkshake',ru:'Орео коктейль',d_en:'',d_ru:'',p:11.99},
+    {en:'Peach Milkshake',ru:'Персиковый коктейль',d_en:'',d_ru:'',p:10.99}
+  ]},
+  {g:'drinks', id:'juice', en:'Fresh Juices · 12 oz', ru:'Свежевыжатые соки · 12 oz', items:[
+    {en:'Orange Fresh Juice',ru:'Свежий апельсиновый сок',d_en:'',d_ru:'',p:12.99},
+    {en:'Apple Fresh Juice',ru:'Свежий яблочный сок',d_en:'',d_ru:'',p:12.99},
+    {en:'Carrot Fresh Juice',ru:'Свежий морковный сок',d_en:'',d_ru:'',p:12.99},
+    {en:'Celery Fresh Juice',ru:'Свежий сельдереевый сок',d_en:'',d_ru:'',p:12.99}
+  ]},
+  {g:'drinks', id:'soda', en:'Soda & Water', ru:'Газировка и вода', items:[
+    {en:'San Pellegrino · 33.8 oz',ru:'San Pellegrino · 33.8 oz',d_en:'',d_ru:'',p:9.99},
+    {en:'Acqua Panna · 33.8 oz',ru:'Acqua Panna · 33.8 oz',d_en:'',d_ru:'',p:9.99},
+    {en:'San Pellegrino · 16.9 oz',ru:'San Pellegrino · 16.9 oz',d_en:'',d_ru:'',p:5.99},
+    {en:'Acqua Panna · 16.9 oz',ru:'Acqua Panna · 16.9 oz',d_en:'',d_ru:'',p:5.99},
+    {en:'Coke Mexican · 12 oz',ru:'Coca-Cola Mexican · 12 oz',d_en:'',d_ru:'',p:6.99},
+    {en:'Fanta Mexican · 12 oz',ru:'Fanta Mexican · 12 oz',d_en:'',d_ru:'',p:6.99}
+  ]},
+  {g:'drinks', id:'coffee', en:'Coffee', ru:'Кофе', items:[
+    {en:'Espresso',ru:'Эспрессо',d_en:'',d_ru:'',p:4.99},
+    {en:'Americano',ru:'Американо',d_en:'',d_ru:'',p:4.99},
+    {en:'Double Espresso',ru:'Двойной эспрессо',d_en:'',d_ru:'',p:5.99},
+    {en:'Decaf Coffee',ru:'Кофе без кофеина',d_en:'',d_ru:'',p:5.99}
+  ]},
+
+  {g:'sweets', id:'dessert', en:'Dessert', ru:'Десерты', items:[
+    {en:'Mousse Cake',ru:'Муссовый торт',d_en:'',d_ru:'',p:15.99},
+    {en:'Dubai Chocolate Trifle',ru:'Трайфл «Дубайский шоколад»',d_en:'',d_ru:'',p:12.99},
+    {en:'Pistachio Cheesecake Trifle',ru:'Фисташковый чизкейк-трайфл',d_en:'',d_ru:'',p:12.99},
+    {en:'Raspberry Banana Trifle',ru:'Малиново-банановый трайфл',d_en:'',d_ru:'',p:12.99}
+  ]}
+];
+
+const LOVES = [
+  {ic:'fish', en_t:'Pristine fish',ru_t:'Безупречная рыба', en_p:'Bluefin tuna, Faroe Islands salmon and sweet spot prawns — cut fresh to order.', ru_p:'Голубой тунец, лосось с Фарерских островов и сладкие креветки — режут к заказу.'},
+  {ic:'flame',en_t:'Torch-seared aburi',ru_t:'Абури с огнём', en_p:'Flame-kissed nigiri with a buttery, smoky finish you can taste.', ru_p:'Нигири, обожжённые горелкой, со сливочно-дымным послевкусием.'},
+  {ic:'star', en_t:'4.9 across 521 reviews',ru_t:'4.9 на основе 521 отзыва', en_p:'A neighborhood favorite on Emmons Avenue, day in and day out.', ru_p:'Любимое место района на Эммонс-авеню — изо дня в день.'},
+  {ic:'box',  en_t:'Pickup or delivery',ru_t:'Самовывоз или доставка', en_p:'Order on Clover, DoorDash, Uber Eats, Grubhub, Seamless and more.', ru_p:'Заказ через Clover, DoorDash, Uber Eats, Grubhub, Seamless и другие.'}
+];
+
+const LOVE_ICONS = {
+  fish:'<path d="M3 12c4-5 11-6 17-3 1 .5 1 1.5 0 2-6 3-13 2-17-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7" cy="11.5" r="1" fill="currentColor"/><path d="M19 9c2 1 2 5 0 6" stroke="currentColor" stroke-width="1.6"/>',
+  flame:'<path d="M12 3c1 3-2 4-2 7a4 4 0 0 0 8 0c0-2-1-3-2-4 .5 3-1 4-2 4 1-4-1-6-2-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
+  star:'<path d="M12 3l2.5 5.5L20 9.3l-4 3.9 1 5.8L12 16.3 7 19l1-5.8-4-3.9 5.5-.8L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
+  box:'<path d="M3 7l9-4 9 4-9 4-9-4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 7v10l9 4 9-4V7" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 11v10" stroke="currentColor" stroke-width="1.5"/>'
+};
+
+/* ============ I18N (UI strings) ============ */
+const T = {
+  en:{
+    brandSub:'Sushi · Brooklyn', navMenu:'Menu', navOrder:'Order', navReviews:'Reviews', navInfo:'Visit',
+    orderNow:'Order now', orderPickupDelivery:'Order pickup or delivery', viewMenu:'View the menu',
+    ratingMeta:'· 521 Google reviews', heroEyebrow:'Sheepshead Bay · Japanese-fusion',
+    heroTag:'Torch-seared sushi, on the Brooklyn waterfront.',
+    heroDesc:'Pristine nigiri and sashimi, flame-kissed aburi, hand-rolled maki, and a full kitchen — from filet mignon tagliatelle to a dry-aged burger.',
+    heroAddr:'1809 Emmons Ave, Brooklyn', priceRange:'$20–80 / person', freshDaily:'Fresh fish daily',
+    signature:'Signature', aburiTitle:'Aburi Sake', aburiDesc:'Torch-seared Faroe Islands salmon · buttery, smoky finish',
+    orderHead:'Order in', orderHeadEm:'a few taps',
+    orderSub:'Pickup or delivery through your favorite app. Ordering direct on Clover keeps the most going to the kitchen.',
+    orderCall:'Prefer to call?',
+    menuHead:'The', menuHeadEm:'menu',
+    menuSub:'Sushi cut to order, rolls, a Western-leaning kitchen, and a drinks program worth the trip. Prices per item.',
+    revHead:'Loved in', revHeadEm:'the neighborhood', revOf:'Average of', revReviews:'reviews', revGoogle:'See reviews on Google',
+    infoHead:'Find', infoHeadEm:'us', infoSub:'On Emmons Avenue along the Sheepshead Bay waterfront. Open every day, 11 AM to 11 PM.',
+    hoursTitle:'Hours', hoursSub:'Open 7 days a week', contactTitle:'Contact', contactSub:'Call, visit, or get directions',
+    addrLabel:'Address', phoneLabel:'Phone', servicesLabel:'Service options', services:'Dine-in · Takeout · Delivery',
+    pluscodeLabel:'Plus code', getDirections:'Get directions',
+    bandEyebrow:'Hungry yet?', bandHead:'Your table — or your', bandHeadEm:'door', bandSub:'Skip the wait. Order pickup or delivery now, or call to reserve.',
+    callUs:'Call +1 718-247-4343',
+    footAbout:'Japanese-fusion sushi on the Sheepshead Bay waterfront. Cut to order, seared to finish.',
+    footExplore:'Explore', footOrder:'Order online', footVisit:'Visit', footHours:'Daily 11:00–23:00',
+    footRights:'All rights reserved.', footMade:'Sheepshead Bay, Brooklyn · New York',
+    modalEyebrow:'Pickup & delivery', modalTitle:'Where would you like to order?', modalSub:'Choose a platform — it opens in a new tab.',
+    openNow:'Open now', openUntil:'Open · until 11 PM', closedNow:'Closed', opensAt:'Closed · opens 11 AM',
+    days:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+    hoursVal:'11:00 AM – 11:00 PM', allCat:'All'
+  },
+  ru:{
+    brandSub:'Суши · Бруклин', navMenu:'Меню', navOrder:'Заказать', navReviews:'Отзывы', navInfo:'Контакты',
+    orderNow:'Оформить заказ', orderPickupDelivery:'Самовывоз или доставка', viewMenu:'Открыть меню',
+    ratingMeta:'· 521 отзыв в Google', heroEyebrow:'Шипсхед-Бэй · японский фьюжн',
+    heroTag:'Суши, обожжённые горелкой, у самой набережной Бруклина.',
+    heroDesc:'Безупречные нигири и сашими, абури с огнём, маки ручной работы и полноценная кухня — от тальятелле с филе-миньон до бургера из выдержанной говядины.',
+    heroAddr:'1809 Emmons Ave, Бруклин', priceRange:'$20–80 / чел.', freshDaily:'Свежая рыба каждый день',
+    signature:'Фирменное', aburiTitle:'Абури Саке', aburiDesc:'Лосось с Фарерских островов, обожжённый горелкой · сливочно-дымный вкус',
+    orderHead:'Заказ за', orderHeadEm:'пару касаний',
+    orderSub:'Самовывоз или доставка через удобное приложение. Заказ напрямую через Clover оставляет больше кухне.',
+    orderCall:'Удобнее позвонить?',
+    menuHead:'Наше', menuHeadEm:'меню',
+    menuSub:'Суши, нарезанные к заказу, роллы, кухня с европейским уклоном и напитки, ради которых стоит зайти. Цена за позицию.',
+    revHead:'Любят в', revHeadEm:'районе', revOf:'Средняя из', revReviews:'отзывов', revGoogle:'Отзывы в Google',
+    infoHead:'Как нас', infoHeadEm:'найти', infoSub:'На Эммонс-авеню вдоль набережной Шипсхед-Бэй. Открыто ежедневно с 11:00 до 23:00.',
+    hoursTitle:'Часы работы', hoursSub:'Открыто 7 дней в неделю', contactTitle:'Контакты', contactSub:'Позвоните, заходите или постройте маршрут',
+    addrLabel:'Адрес', phoneLabel:'Телефон', servicesLabel:'Варианты обслуживания', services:'В зале · Навынос · Доставка',
+    pluscodeLabel:'Plus-код', getDirections:'Построить маршрут',
+    bandEyebrow:'Уже проголодались?', bandHead:'Ваш столик — или ваша', bandHeadEm:'дверь', bandSub:'Не ждите очереди. Оформите самовывоз или доставку сейчас либо позвоните, чтобы забронировать.',
+    callUs:'Звонок +1 718-247-4343',
+    footAbout:'Японский фьюжн-суши у набережной Шипсхед-Бэй. Режем к заказу, обжигаем перед подачей.',
+    footExplore:'Разделы', footOrder:'Заказ онлайн', footVisit:'Контакты', footHours:'Ежедневно 11:00–23:00',
+    footRights:'Все права защищены.', footMade:'Шипсхед-Бэй, Бруклин · Нью-Йорк',
+    modalEyebrow:'Самовывоз и доставка', modalTitle:'Где хотите оформить заказ?', modalSub:'Выберите платформу — откроется в новой вкладке.',
+    openNow:'Сейчас открыто', openUntil:'Открыто · до 23:00', closedNow:'Закрыто', opensAt:'Закрыто · откроется в 11:00',
+    days:['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+    hoursVal:'11:00 – 23:00', allCat:'Всё'
+  }
+};
+
+let LANG = 'en';
+const star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L12 16.9 6.2 20.3l1.6-6.6L2.6 9.3l6.8-.5L12 2Z"/></svg>';
+const fmtPrice = p => LANG==='ru' ? p.toFixed(2).replace('.',',')+' $' : '$'+p.toFixed(2);
+const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+/* ============ RENDER ============ */
+function renderStars(el,n){ if(el) el.innerHTML = star.repeat(n); }
+
+function renderOrder(){
+  const grid = document.getElementById('order-grid');
+  grid.innerHTML = ORDER.map(p=>`
+    <a class="plat" style="--pc:${p.color}" href="${p.url}" target="_blank" rel="noopener">
+      <span class="plat-ico">${p.name.charAt(0)}</span>
+      <span class="plat-body">
+        <span class="plat-name">${p.name}${p.best?` <span class="tag-best">${LANG==='ru'?'Напрямую':'Direct'}</span>`:''}</span>
+        <span class="plat-note">${p.note[LANG]}</span>
+      </span>
+      <span class="plat-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>`).join('');
+
+  document.getElementById('modal-body').innerHTML = ORDER.map(p=>`
+    <a class="plat" style="--pc:${p.color}" href="${p.url}" target="_blank" rel="noopener">
+      <span class="plat-ico">${p.name.charAt(0)}</span>
+      <span class="plat-body">
+        <span class="plat-name">${p.name}${p.best?` <span class="tag-best">${LANG==='ru'?'Напрямую':'Direct'}</span>`:''}</span>
+        <span class="plat-note">${p.note[LANG]}</span>
+      </span>
+      <span class="plat-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>`).join('');
+
+  document.getElementById('foot-order').innerHTML = ORDER.map(p=>
+    `<li><a href="${p.url}" target="_blank" rel="noopener">${p.name}</a></li>`).join('');
+}
+
+let activeGroup = 'all';
+function renderTabs(){
+  document.getElementById('tabs').innerHTML = GROUPS.map(g=>
+    `<button class="tab ${g.id===activeGroup?'on':''}" data-g="${g.id}" onclick="setGroup('${g.id}')">${g[LANG]}</button>`).join('');
+}
+function renderPills(){
+  const cats = MENU.filter(c=>activeGroup==='all'||c.g===activeGroup);
+  document.getElementById('pills').innerHTML = cats.map(c=>
+    `<button class="pill" data-pill="${c.id}" onclick="jumpTo('${c.id}')">${c[LANG]}</button>`).join('');
+}
+function renderMenu(){
+  const cats = MENU.filter(c=>activeGroup==='all'||c.g===activeGroup);
+  document.getElementById('menu-body').innerHTML = cats.map(c=>`
+    <div class="cat" id="cat-${c.id}">
+      <div class="cat-head">
+        <h3>${c[LANG]}</h3>
+        <span class="ln"></span>
+        <span class="cnt">${String(c.items.length).padStart(2,'0')}</span>
+      </div>
+      <div class="items">
+        ${c.items.map(it=>`
+          <div class="item">
+            <div class="item-top">
+              <span class="item-name">${esc(it[LANG])}${it.feat==='aburi'?`<span class="item-feat">${LANG==='ru'?'обжиг':'seared'}</span>`:''}${it.feat==='spicy'?`<span class="item-feat">${LANG==='ru'?'остро':'spicy'}</span>`:''}</span>
+              <span class="item-lead"></span>
+              <span class="item-price">${fmtPrice(it.p)}</span>
+            </div>
+            ${it['d_'+LANG]?`<div class="item-desc">${esc(it['d_'+LANG])}</div>`:''}
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+function setGroup(g){
+  activeGroup=g; renderTabs(); renderPills(); renderMenu(); initSpy();
+  document.getElementById('menu').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function jumpTo(id){
+  const el=document.getElementById('cat-'+id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderLoves(){
+  document.getElementById('loves').innerHTML = LOVES.map(l=>`
+    <div class="love">
+      <span class="li"><svg viewBox="0 0 24 24" fill="none">${LOVE_ICONS[l.ic]}</svg></span>
+      <h4>${l[LANG+'_t']}</h4>
+      <p>${l[LANG+'_p']}</p>
+    </div>`).join('');
+}
+
+function renderHours(){
+  const ny = nyParts();
+  const today = ny.dow; // 0..6
+  const days = T[LANG].days;
+  let html='';
+  for(let i=1;i<=7;i++){
+    const d = i%7; // Monday..Sunday display order: 1,2,3,4,5,6,0
+    html += `<div class="hours-row ${d===today?'today':''}"><span class="hd">${days[d]}</span><span>${T[LANG].hoursVal}</span></div>`;
+  }
+  document.getElementById('hours').innerHTML = html;
+}
+
+/* ============ OPEN-NOW (America/New_York) ============ */
+function nyParts(){
+  const f = new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false});
+  const parts = f.formatToParts(new Date());
+  const map={}; parts.forEach(p=>map[p.type]=p.value);
+  const dowMap={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  let h=parseInt(map.hour,10); if(h===24) h=0;
+  return {dow:dowMap[map.weekday], hour:h, min:parseInt(map.minute,10)};
+}
+function updateOpen(){
+  const {hour,min}=nyParts();
+  const mins=hour*60+min;
+  const open = mins>=660 && mins<1380; // 11:00 .. 23:00
+  const dot=document.getElementById('open-dot');
+  const txt=document.getElementById('open-text');
+  if(open){ dot.classList.remove('closed'); txt.textContent=T[LANG].openUntil; }
+  else { dot.classList.add('closed'); txt.textContent=T[LANG].opensAt; }
+}
+
+/* ============ MARQUEE ============ */
+function renderStrip(){
+  const words = LANG==='ru'
+    ? ['Абури','Нигири','Сашими','Роллы','Боттан Эби','Голубой тунец','Матча','Бабл-ти','Севиче','Лосось Фарер']
+    : ['Aburi','Nigiri','Sashimi','Hand rolls','Botan Ebi','Bluefin tuna','Matcha','Bubble tea','Ceviche','Faroe salmon'];
+  const block = '<span>'+words.join('</span><span>')+'</span>';
+  document.getElementById('strip').innerHTML = block+block;
+}
+
+/* ============ LANG ============ */
+function setLang(l){
+  LANG=l;
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n'); if(T[l][k]!==undefined) el.textContent=T[l][k];
+  });
+  ['lang-en','lang-ru','lang-en-d','lang-ru-d'].forEach(id=>{const b=document.getElementById(id);if(b)b.classList.remove('on');});
+  document.getElementById('lang-'+l).classList.add('on');
+  const dd=document.getElementById('lang-'+l+'-d'); if(dd) dd.classList.add('on');
+  renderOrder(); renderTabs(); renderPills(); renderMenu(); renderLoves(); renderHours(); renderStrip(); updateOpen(); initSpy();
+}
+
+/* ============ MODAL / DRAWER ============ */
+function openOrder(){const o=document.getElementById('overlay');o.classList.add('open');document.body.style.overflow='hidden';}
+function closeOrder(){const o=document.getElementById('overlay');o.classList.remove('open');document.body.style.overflow='';}
+function toggleDrawer(){const d=document.getElementById('drawer');d.classList.toggle('open');document.body.style.overflow=d.classList.contains('open')?'hidden':'';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeOrder();const d=document.getElementById('drawer');if(d.classList.contains('open'))toggleDrawer();}});
+
+/* ============ SCROLL SPY + HEADER ============ */
+let spyObs=null;
+function initSpy(){
+  if(spyObs) spyObs.disconnect();
+  const pills=[...document.querySelectorAll('.pill')];
+  if(!pills.length) return;
+  spyObs=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const id=en.target.id.replace('cat-','');
+        pills.forEach(p=>p.classList.toggle('on',p.dataset.pill===id));
+        const onp=document.querySelector('.pill.on');
+        if(onp&&onp.parentElement) onp.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+      }
+    });
+  },{rootMargin:'-180px 0px -65% 0px',threshold:0});
+  document.querySelectorAll('.cat').forEach(c=>spyObs.observe(c));
+}
+const hdr=document.getElementById('hdr');
+window.addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',window.scrollY>30);},{passive:true});
+
+/* reveal on scroll */
+function initReveal(){
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+/* ============ INIT ============ */
+function init(){
+  document.getElementById('year').textContent=new Date().getFullYear();
+  renderStars(document.getElementById('hero-stars'),5);
+  renderStars(document.getElementById('rev-stars'),5);
+  renderOrder(); renderTabs(); renderPills(); renderMenu(); renderLoves(); renderHours(); renderStrip();
+  updateOpen(); setInterval(updateOpen,60000);
+  initReveal(); initSpy();
+}
+init();
+</script>
+</body>
+</html>
